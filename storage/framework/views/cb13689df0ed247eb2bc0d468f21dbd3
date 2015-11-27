@@ -1,0 +1,58 @@
+<?php $__env->startSection('title','Sign Up'); ?>
+<?php $__env->startSection('content-title','Đăng ký'); ?>
+<?php $__env->startSection('content'); ?>
+<?php echo $__env->make('shared.errors_message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+
+<form acction = " <?php echo e(url('/singup')); ?> " method="POST">
+    <table>
+         <tr>
+            <td>Họ tên</td>
+            <td><input type="text" size="30" name='name' /></td>
+        </tr>
+        <tr>
+            <td>Giới Tính</td>
+            <td>
+                <input type="radio" name="sex" value = 0 />Nữ
+                <input type="radio" name="sex" value = 1 />Nam
+            </td>
+        </tr>
+         <tr>
+            <td>Phone</td>
+            <td><input type="varchar" size="15" name="phone" /></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" size="30" name="email" /></td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td><textarea cols="50" row="4" name="address" ></textarea></td>
+        </tr>
+        <tr>
+            <td>Ngày Tháng Năm Sinh</td>
+            <td><input type="date" name="birthday" /></td>
+        </tr>
+        <tr><td>----------------------</td></tr>
+        <tr>
+            <td>Username</td>
+            <td><input type="text" size="30" name="username" /></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" size="30" name="password" /></td>
+        </tr>
+        <tr>
+            <td>Confirm Password</td>
+            <td><input type="password" size="30" name="password_confirmation" /></td>
+        </tr>
+        <tr><td>----------------------</td></tr>        
+        <tr>
+            <td><h2><input type="submit" value="Hoàn Tất" name="singup"  /></h2></td>
+        </tr>
+
+    </table>
+</form>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

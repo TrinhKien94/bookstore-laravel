@@ -1,0 +1,55 @@
+<?php $__env->startSection('title','Thông tin cá nhân'); ?>
+<?php $__env->startSection('content-title','Thông tin cá nhân'); ?>
+<?php $__env->startSection('content'); ?>
+<?php echo $__env->make('shared.errors_message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo Form::open(array('action' =>array('UserController@update_info',Auth::user()->id))); ?>
+
+    <?php echo csrf_field(); ?>
+
+    <input name='_method' type='hidden' value='PUT' >
+    <table>
+        <tr><h1>Đăng Ký</h1></tr>
+         <tr>
+            <td>Họ tên</td>
+            <td><input type="text" size="30" name='name' value= '<?php echo e(Auth::user()->name); ?>' /></td>
+        </tr>
+         <tr>
+            <td>Phone</td>
+            <td><input type="varchar" size="15" name="phone" value='<?php echo e(Auth::user()->phone); ?>' /></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" size="30" name="email" value='<?php echo e(Auth::user()->email); ?>' /></td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td><textarea cols="50" row="4" name="address" value='<?php echo e(Auth::user()->address); ?>' ></textarea></td>
+        </tr>
+        <tr>
+            <td>Ngày Tháng Năm Sinh</td>
+            <td><input type="date" name="birthday" value='<?php echo e(Auth::user()->birthday); ?>' /></td>
+        </tr>
+        <tr><td>----------------------</td></tr>
+        <tr>
+            <td>Username</td>
+            <td><input type="text" size="30" name="username" value='<?php echo e(Auth::user()->username); ?>' /></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" size="30" name="password" /></td>
+        </tr>
+        <tr>
+            <td>Confirm Password</td>
+            <td><input type="password" size="30" name="password_confirmation" /></td>
+        </tr>
+        <tr><td>----------------------</td></tr>        
+        <tr>
+            <td><h2><input type="submit" value="Hoàn Tất"  /></h2></td>
+        </tr>
+
+    </table>
+<?php echo Form::close(); ?>
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

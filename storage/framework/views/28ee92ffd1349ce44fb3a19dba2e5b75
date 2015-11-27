@@ -1,0 +1,12 @@
+<?php if(count($errors)>0): ?>
+	<div id='alert-danger'>
+		<div>
+			<h1>This your input has <?php echo e(count($errors)); ?> errors:</h1>
+		</div>
+		<ul>
+			<?php foreach($errors->all() as $error): ?>
+				<li><h2><?php echo e($error); ?></h2></li>
+			<?php endforeach; ?>
+		</ul>
+	</div>
+<?php endif; ?>

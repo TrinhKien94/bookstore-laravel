@@ -1,0 +1,24 @@
+<?php $__env->startSection('title'); ?>
+<?php echo e($category); ?> - <?php echo e($book_cate_name); ?>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content-title'); ?>
+<?php echo e($category); ?>
+
+- <?php echo e($book_cate_name); ?>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+	<div class="list-books"> 
+    <?php foreach($book_book_cates as $book_book_cate): ?>
+        <?php /**/ $book=$book_book_cate->book /**/ ?> 
+        <?php echo $__env->make('book._item', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php endforeach; ?>
+    </div>
+    <?php echo $book_book_cates->render(); ?>
+
+<?php $__env->stopSection(); ?>
+
+
+
+<?php echo $__env->make('layout.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

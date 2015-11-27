@@ -1,0 +1,20 @@
+<?php $__env->startSection('title','Kết quả tìm kiếm'); ?>
+<?php $__env->startSection('content-title','Kết quả tìm kiếm'); ?>
+<?php $__env->startSection('content'); ?>
+	<div class="list-books"> 
+		<?php if($books==='1'): ?>
+			<p>Không có kết quả nào phù hợp</p>
+			</div>
+		<?php else: ?>
+	    	<?php foreach($books as $book): ?>
+	        	<?php echo $__env->make('book._item', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	    	<?php endforeach; ?>
+	    	 </div>
+  			<?php echo $books->appends($request)->render(); ?>
+
+	    <?php endif; ?>
+
+<?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('layout.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

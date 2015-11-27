@@ -1,0 +1,32 @@
+<div id="templatemo_menu">
+	<ul>
+        <li><a href="<?php echo e(url('/')); ?>" class="current">Home</a></li>
+        <?php if(Auth::check()): ?>
+            <li><a href=" <?php echo e(url('/user_info')); ?> "> Admin: <?php echo e(Auth::user()->username); ?> </a></li>
+            <li><a href="<?php echo e(url('/admin_users')); ?>" >Quản lý user</a></li>
+            <li><a href="<?php echo e(url('/admin_books')); ?>" >Quản lý sách</a></li>
+            <li><a href="<?php echo e(url('/auth/logout')); ?>">Logout</a></li>
+        <?php else: ?> <li><a href="<?php echo e(url('/admin/login')); ?>">Login</a></li>
+        <?php endif; ?>
+	</ul>
+</div> <!-- end of menu -->
+
+<div id="templatemo_header">
+	<div id="templatemo_special_offers">
+    	<p>
+            <span>25%</span> 
+            discounts for purchase over $ 40
+    	</p>
+		<a href="#" style="margin-left: 50px;">Read more...</a>
+    </div>
+    
+    
+    <div id="templatemo_new_books">
+    	<ul>
+            <li>Suspen disse</li>
+            <li>Maece nas metus</li>
+            <li>In sed risus ac feli</li>
+        </ul>
+        <a href="#" style="margin-left: 50px;">Read more...</a>
+    </div>
+</div>

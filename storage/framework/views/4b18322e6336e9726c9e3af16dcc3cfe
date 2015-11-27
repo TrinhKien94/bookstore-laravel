@@ -1,0 +1,30 @@
+<div class="templatemo_product_box">
+	
+        <?php if($book->book_id!==null): ?>
+            <h1><a href="<?php echo e(url()); ?>/book_info/<?php echo e($book->book_id); ?>"><?php echo e($book->title); ?></a></h1>
+            <a href="<?php echo e(url()); ?>/book_info/<?php echo e($book->book_id); ?>"><img src="<?php echo e(url()); ?>/<?php echo e($book->image); ?>.jpg" alt="image" width="110px" height="160" /></a>
+        <?php else: ?>
+            <h1><a href="<?php echo e(url()); ?>/book_info/<?php echo e($book->id); ?>"><?php echo e($book->title); ?></a></h1>
+            <a href="<?php echo e(url()); ?>/book_info/<?php echo e($book->id); ?>"><img src="<?php echo e(url()); ?>/<?php echo e($book->image); ?>.jpg" alt="image" width="110px" height="160" /></a>
+        <?php endif; ?>
+    <div class="product_info">
+    	<p><?php echo e($book->author); ?></p>
+        <h3><?php echo e($book->price); ?>.000 VNĐ</h3>
+       	<form action="<?php echo e(url()); ?>/order" method="POST" class="buy-form" >
+	                <input type="hidden" name="book_id" value="<?php echo e($book->id); ?>">
+	                <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
+                    <button type="submit"class="buy_now_button">
+                        Buy now
+                    </button>
+	                <button class="add_to_cart_button">
+	                    Add to cart
+	                </button>
+	    </form>
+<!--         <?php if($book->book_id!==null): ?>
+            <div class="detail_button"><a href="<?php echo e(url()); ?>/book_info/<?php echo e($book->book_id); ?>">Detail</a></div>
+        <?php else: ?>
+            <div class="detail_button"><a href="<?php echo e(url()); ?>/book_info/<?php echo e($book->id); ?>">Detail</a></div>
+        <?php endif; ?> -->
+    </div>
+    <div class="cleaner">&nbsp;</div>
+</div>

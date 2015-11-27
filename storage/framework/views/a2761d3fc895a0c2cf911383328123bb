@@ -1,0 +1,18 @@
+<?php $__env->startSection('title','Search'); ?>
+<?php $__env->startSection('content-title','search'); ?>
+<?php $__env->startSection('content'); ?>
+
+<form acction="<?php echo e(url('/search')); ?>" method="GET">
+    <table>
+        <tr><td><textarea cols="70" row="5" name="search_text" ></textarea></td></tr>
+        <tr><td></td></tr>
+        <tr><td></td></tr>
+        <tr><td></td></tr>
+        <tr><td></td></tr>
+        <tr><td></td></tr>
+        <tr><td><input type="submit" name="search" value="Tìm Kiếm" /></td></tr>
+    </table>
+</form>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

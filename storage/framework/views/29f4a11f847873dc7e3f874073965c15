@@ -1,0 +1,65 @@
+<?php $__env->startSection('title','Sửa thông tin cá nhân'); ?>
+<?php $__env->startSection('content-title','Sửa thông tin cá nhân'); ?>
+<?php $__env->startSection('content'); ?>
+<?php echo $__env->make('shared.errors_message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo Form::open(array('action' =>'Auth\AuthController@putUpdate')); ?>
+
+    <?php echo csrf_field(); ?>
+
+    <table>
+         <tr>
+            <td>Họ tên</td>
+            <td><input type="text" size="30" name='name' value= '<?php echo e(Auth::user()->name); ?>' /></td>
+        </tr>
+        <tr>
+            <td>Giới Tính</td>
+            <td>
+            <?php if(Auth::user()->sex==1): ?>
+                <select name="sex">
+                  <option value="1" selected="selected">Nam</option>
+                  <option value="0">Nữ</option>
+                </select>
+            <?php else: ?>
+                <select name="sex">
+                  <option value="1">Nam</option>
+                  <option value="0" selected="selected">Nữ</option>
+                </select>
+            <?php endif; ?>
+            </td>
+        </tr>
+         <tr>
+            <td>Phone</td>
+            <td><input type="varchar" size="15" name="phone" value='<?php echo e(Auth::user()->phone); ?>' /></td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td><textarea cols="50" row="4" name="address"><?php echo e(Auth::user()->address); ?></textarea></td>
+        </tr>
+        <tr>
+            <td>Ngày Tháng Năm Sinh</td>
+            <td><input id="datepicker" type="text" name="birthday" value='<?php echo e(Auth::user()->birthday); ?>' /></td>
+        </tr>
+        <tr><td>----------------------</td></tr>
+        <tr>
+            <td>Current-password</td>
+            <td><input type="password" size="30" name="current_password" /></td>
+        </tr>
+        <tr>
+            <td>New-password</td>
+            <td><input type="password" size="30" name="password" /></td>
+        </tr>
+        <tr>
+            <td>Confirm Password</td>
+            <td><input type="password" size="30" name="password_confirmation" /></td>
+        </tr>
+        <tr><td>----------------------</td></tr>        
+        <tr>
+            <td><h2><input type="submit" value="Hoàn Tất"  /></h2></td>
+        </tr>
+
+    </table>
+<?php echo Form::close(); ?>
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

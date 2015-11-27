@@ -1,0 +1,15 @@
+<?php $__env->startSection('title','Home Page'); ?>
+<?php $__env->startSection('content-title','Sách được xem nhiều nhất'); ?>
+<?php $__env->startSection('content'); ?>
+	<div class="list-books"> 
+	    <?php foreach($books as $book): ?>
+	        <?php echo $__env->make('book._item', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	    <?php endforeach; ?>
+    </div>
+    <?php echo $books->render(); ?>
+
+<?php $__env->stopSection(); ?>
+
+
+
+<?php echo $__env->make('layout.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,24 @@
+<div id="templatemo_content_left">
+    <div class="templatemo_content_left_section">
+    	<h1>Categories</h1>
+        <ul>
+            <?php foreach($categories as $category): ?>
+            <li><a class="parent"><?php echo e($category->name); ?></a>
+                <ul class="submenu">
+                <?php /**/ $book_cates=$category->book_cates /**/ ?>
+                <?php foreach($book_cates as $book_cate): ?>
+                    <li><a href="<?php echo e(url()); ?>/book_cate/<?php echo e($book_cate->id); ?>"><?php echo e($book_cate->name); ?></a></li>
+                <?php endforeach; ?>
+                </ul>
+            </li>    
+            <?php endforeach; ?>    
+    	</ul>
+    </div>
+    <div class="templatemo_content_left_section">
+    	<h1>Bestsellers</h1>
+        <ul>
+            <li><a href="#">Sách bán chạy</a></li>
+    	</ul>
+    </div>
+
+</div> <!-- end of content left -->

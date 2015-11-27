@@ -1,0 +1,31 @@
+<?php $__env->startSection('title','Đã nhận đơn hàng'); ?>
+<?php $__env->startSection('content-title','Chi tiết đơn hàng'); ?>
+<?php $__env->startSection('content'); ?>
+	<table class="cart">
+	    <thead>
+	        <tr class="cart_menu">
+	            <td class="item-title">Sách</td>
+	            <!-- <td class="description"></td> -->
+	            <td class="price">Giá</td>
+	            <td class="quantity">Số lượng</td>
+	            <td class="total">Tổng</td>
+	        </tr>
+	    </thead> 
+	    <tbody>
+    	<?php foreach($containers as $container): ?>
+    	    <?php /**/$book=$container['book'] /**/ ?>
+    	    <?php /**/$orderline=$container['orderline'] /**/ ?>
+    	    <?php echo $__env->make('order.item', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	    <?php endforeach; ?>
+	    	<tr class="cart_menu">
+	            <td>Tổng số tiền phải trả</td>
+	            <!-- <td class="description"></td> -->
+	            <td></td>
+	            <td></td>
+	            <td><?php echo e($total); ?></span>.000 VNĐ</p></td>
+	        </tr>
+		</tbody>
+    </table>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layout.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

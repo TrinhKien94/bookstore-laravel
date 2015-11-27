@@ -1,0 +1,40 @@
+<?php $__env->startSection('content-title'); ?>
+<?php echo e($book->title); ?>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('title'); ?>
+<?php echo e($book->title); ?>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+
+        
+<div id="templatemo_content_right">
+    <div class="image_panel"><img src="<?php echo e(url()); ?>/<?php echo e($book->image); ?>.jpg" alt="image" width="160px" height="240px" /></div>
+    <h2>Read the lessons - Watch the videos - Do the exercises</h2>
+    <ul>
+        <li><h2>Tác giả: <a href="#"><?php echo e($book->author); ?></a></h2></li>
+    	<li><h2>Ngày xuất bản: <?php echo e($book->created_at); ?></h2></li>
+        <li><h2>Lượt xem: <?php echo e($book->views); ?></h2></li>
+        <li><h2>Số lượng: <?php echo e($book->quantity); ?></h2></li>
+        <li><h2>Price: <?php echo e($book->price); ?>.000 VNĐ</h2></li>
+    </ul>
+        <form action="<?php echo e(url()); ?>/order" method="POST" class="buy-form" >
+                    <input type="hidden" name="book_id" value="<?php echo e($book->id); ?>">
+                    <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
+                    <button class="add_to_cart_button">
+                        Add to cart
+                    </button>
+                    <button type="submit" class="buy_now_button">
+                        Buy now
+                    </button>
+        </form>
+    <?php echo $book->description; ?>
+
+    
+     <div class="cleaner_with_height">&nbsp;</div>
+                
+</div> <!-- end of content right -->
+    
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

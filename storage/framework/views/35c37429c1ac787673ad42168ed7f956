@@ -1,0 +1,30 @@
+<?php $__env->startSection('title','Lịch sử đặt hàng'); ?>
+<?php $__env->startSection('content-title','Lịch sử đặt hàng'); ?>
+<?php $__env->startSection('content'); ?>
+	<table class="order">
+	    <thead>
+	        <tr class="cart_menu">
+	            <td class="index">STT</td>
+	            <td class="item-title">Ngày đặt</td>
+	            <!-- <td class="description"></td> -->
+	            <td class="total">Tổng</td>
+	            <td class="total">Chi tiết</td>
+	        </tr>
+	    </thead> 
+	    <tbody>
+	    <?php /**/$i=0 /**/ ?>
+    	<?php foreach($orders as $order): ?>
+    		<tr>
+    			<?php /**/$i=$i+1 /**/ ?>
+    			<td><?php echo e($i); ?></td>
+    			<td><?php echo e($order->date); ?></td>
+    			<td><?php echo e($order->money); ?>.000 VNĐ</td>
+			    <td>
+			            <a href="<?php echo e(url()); ?>/order/<?php echo e($order->id); ?>">Chi tiết</a>
+			    </td>
+    		</tr>
+	    <?php endforeach; ?>
+		</tbody>
+    </table>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

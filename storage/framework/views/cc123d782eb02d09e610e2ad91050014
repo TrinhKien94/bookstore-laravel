@@ -1,0 +1,34 @@
+<?php /**/$quantity=$container['quantity'] /**/ ?>
+<tr>
+<!--     <td class="cart_product">
+        <a href=""><img src="<?php echo e(url()); ?>/<?php echo e($book->image); ?>.jpg" alt="image" width="100px" height="150" alt=""></a>
+    </td> -->
+    <td class="cart_description">
+        <h4><a href="<?php echo e(url('book_info')); ?>/<?php echo e($book->id); ?>"><?php echo e($book->title); ?></a></h4>
+        <p>Tác giả: <?php echo e($book->author); ?></p>
+    </td>
+    <td class="cart_price">
+        <p><?php echo e($book->price); ?>.000 VNĐ</p>
+    </td>
+    <td class="cart_quantity">
+        <div class="cart_quantity_button">
+            <?php echo Form::open(); ?>
+
+            <input type="hidden" name="book_id" value="<?php echo e($book->id); ?>">
+            <input type='number' id="quantity" class='quantity_input'size='10' min="1" max="30" name='quantity' value= "<?php echo e($quantity); ?>" />
+            <?php echo Form::close(); ?>
+
+        </div>
+    </td>
+    <td class="cart_total">
+        <p><span class="cart_total_price"><?php echo e($container['subtotal']); ?></span>.000 VNĐ</p>
+    </td>
+    <td class="cart_delete">
+        <?php echo Form::open(); ?>
+
+            <input type="hidden" name="book_id" value="<?php echo e($book->id); ?>">
+            <a class="cart_quantity_delete" href="">Xóa</a>
+        <?php echo Form::close(); ?>
+
+    </td>
+</tr>
